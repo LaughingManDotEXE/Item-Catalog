@@ -13,12 +13,30 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-#Delete a Mage
-#Delete a Magic_Skill
-#Create a Mage
-#Create a Magic Skill
-#Update a Mage
-#Update a Magic_Skill
 #Show a Mage
+@app.route
+def showMage
 #Show a Magic_Skill
+@app.route
+def showMagicSkill()
+#Delete a Mage
+@app.route
+def deleteMage()
+#Delete a Magic_Skill
+@app.route
+def deleteMagicSkill()
+#Create a Mage
+@app.route
+def createMage()
+#Create a Magic Skill
+@app.route
+def createMagicSkill()
+#Update a Mage
+@app.route
+def updateMage()
+#Update a Magic_Skill
+@app.route
+def updateMagicSkill()
 #JSON API for all Mage information
+@app.route
+def
