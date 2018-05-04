@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect,jsonify, url_for, flash
+from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 
 from sqlalchemy import create_engine, asc
@@ -13,30 +14,56 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-#Show a Mage
-@app.route
-def showMage
+#Show all Mages
+@app.route('/')
+@app.route('/Mages')
+def showMage():
+	
 #Show a Magic_Skill
-@app.route
-def showMagicSkill()
+@app.route('')
+def showMagicSkill():
 #Delete a Mage
-@app.route
-def deleteMage()
+@app.route('', methods = ['GET','POST'])
+def deleteMage():
+	if	
+		return
+	else:
+		return
 #Delete a Magic_Skill
-@app.route
-def deleteMagicSkill()
+@app.route('', methods = ['GET','POST'])
+def deleteMagicSkill():
+	if
+		return
+	return
+		return
 #Create a Mage
-@app.route
-def createMage()
+@app.route('', methods = ['GET','POST'])
+def createMage():
+	if
+		return
+	else:
+		return
 #Create a Magic Skill
-@app.route
-def createMagicSkill()
+@app.route('', methods = ['GET','POST'])
+def createMagicSkill():
+	if
+		return
+	else:
+		return
 #Update a Mage
-@app.route
-def updateMage()
+@app.route('', methods = ['GET','POST'])
+def updateMage():
+	if
+		return
+	else:
+		return
 #Update a Magic_Skill
-@app.route
-def updateMagicSkill()
+@app.route('', methods = ['GET','POST'])
+def updateMagicSkill():
+	if
+		return
+	else:
+		return
 #JSON API for all Mage information
-@app.route
+@app.route('')
 def
