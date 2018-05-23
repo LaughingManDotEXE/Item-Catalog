@@ -18,6 +18,8 @@ session = DBSession()
 @app.route('/')
 @app.route('/Mages')
 def showMage():
+mages = session.query(Mage).order_by(asc(Mage.name))
+  return render_template('mages.html', mages = mages)
 	
 #Show a Magic_Skill
 @app.route('')
