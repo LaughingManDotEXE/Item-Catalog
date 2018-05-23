@@ -25,12 +25,16 @@ mages = session.query(Mage).order_by(asc(Mage.name))
 @app.route('')
 def showMagicSkill():
 #Delete a Mage
-@app.route('', methods = ['GET','POST'])
-def deleteMage():
-	if	
-		return
-	else:
-		return
+@app.route('/mage/<int:mage_id>/delete/', methods = ['GET','POST'])
+def deleteMage(mage_id):
+  mageToDelete = session.query(Mage).filter_by(id = mage_id).one()
+  if request.method == 'POST':
+    session.delete(mageToDelete)
+    flash('%s A Mage character has been deleted' % mageToDelete.name)
+    session.commit()
+    return redirect(url_for('showMages', mage_id = mage_id))
+  else:
+    return render_template('deleteMage.html',mage = mageToDelete)
 #Delete a Magic_Skill
 @app.route('', methods = ['GET','POST'])
 def deleteMagicSkill():
@@ -40,11 +44,15 @@ def deleteMagicSkill():
 		return
 #Create a Mage
 @app.route('', methods = ['GET','POST'])
-def createMage():
-	if
-		return
-	else:
-		return
+def createMage(mage_id):
+  if request.method == 'POST':
+      newMage = Mage(name = request.form['name'])
+      session.add(newMage)
+      flash('New Mage %s has been added' % newMage.name)
+      session.commit()
+      return redirect(url_for('showMage'))
+  else:
+      return render_template('newMage.html')
 #Create a Magic Skill
 @app.route('', methods = ['GET','POST'])
 def createMagicSkill():

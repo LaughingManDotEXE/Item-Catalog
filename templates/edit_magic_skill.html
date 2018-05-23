@@ -1,13 +1,52 @@
 {% extends "base.html" %}
-{% block title %}Index{% endblock %}
-{% block head %}
-  {{ super() }}
-  <style type="text/css">
-    .important { color: #336699; }
-  </style>
-{% endblock %}
+{% block title %}Edit Magic Skill{% endblock %}
 {% block content %}
-  <h1>Index</h1>
-  <p class="important">
-    Welcome on my awesome homepage.
+	<div class="row divider black">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit Magic Skill</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Skill:</label>
+					<input type ="text" maxlength="30" class="form-control" name="name" value="{{skill.name }}">
+
+					<label for="ability">Ability:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description">{{skill.ability}}</textarea>
+					<label for="element">Element:</label>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="element" id="fire" value="Fire" {% if skill.element == 'Fire'%}checked{%endif%}>Appetizer
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="element" id="earth" value="Earth" {% if skill.element == 'Earth' %}checked{%endif%}>Entree
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="element" id="air" value="Air" {% if skill.element == 'Air'%}checked{%endif%}>Dessert
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="element" id="water" value="Water" {%if skill.element =='Water'%}checked{%endif%}>Beverage
+					  </label>
+					</div>
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					<a href = '{{url_for('showMages')}}'>
+						<button class="btn btn-default delete">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
 {% endblock %}
